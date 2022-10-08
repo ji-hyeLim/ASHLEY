@@ -1,5 +1,30 @@
 @charset "utf-8";
 
+@keyframes move {
+    0% { transform: rotate(5deg); }
+    10% { transform: rotate(4deg); }
+	20%{ transform: rotate(3deg); }
+    30% { transform: rotate(2deg); }
+	40% { transform: rotate(1deg); }
+    50% { transform: rotate(0deg); }
+	60% { transform: rotate(-1deg); }
+    70% { transform: rotate(-2deg); }
+	80% { transform: rotate(-3deg); }
+    90% { transform: rotate(-4deg); }
+	100% { transform: rotate(-5deg); }
+}
+
+@keyframes fadein {
+    from {
+        margin-left: 10%;
+        width: 100%
+    }
+    to {
+        margin-left: 0%;
+        width: 100%;
+    }
+}
+
 .wrapper {
     width: 100%;
 }
@@ -17,46 +42,82 @@
 /* logo-centermenu-rightmenu */
 .logo-centermenu-rightmenu {
     text-align: left;
+    margin: 10px 0;
 }
 
-header .menu-logo-flexbox {
+.menu-logo-flexbox {
     display: flex;
     justify-content: space-between;
 }
 
-header .logo img {
+.logo {
+    position: relative;
+    animation: move 1s infinite alternate;
+}
+
+.logo img {
     width: 149px; height: 50px;
 }
 
-header .centermenu li {
+.logo:hover {
+    animation-play-state: paused;
+}
+
+.centermenu li {
+    position: relative;
     float: left;
-    margin: 10px;
+    margin: 15px;
     font-size: 1em;
     font-weight: bold;
     color: #161a2f;
 }
 
-header .rightmenu li {
-    float: left;
-    margin: 10px;
-    color: #3333;
-    
+.centermenu .gnb li a:hover {
+    color: #161a2f;
 }
 
-header .rightmenu li:nth-child(1),
-header .rightmenu li:nth-child(2) {
-    padding-right: 15px ;
+.centermenu li a::after {
+    position: absolute;
+    content: '';
+    display: block;
+    width: 100%;
+    height: 2px;
+    margin-top: 3px;
+    transform: scaleX(0);
+    transition: transform 0.5s;
+    background-color:#161a2f;
+}
+
+.centermenu li a:hover::after { 
+    transform: scaleX(1);
+}
+
+.rightmenu li {
+    float: left;
+    margin-top: 15px;
+    padding: 0 15px;
+    color: black;
+    font-size: 14px;
+    font-weight: 300;
+}
+
+.rightmenu li:nth-child(1),
+.rightmenu li:nth-child(2) {
     border-right: 1px solid #3333;
+}
+
+.rightmenu li a:hover {
+    color: #ccc;
+    transform: translateY(-1px);
 }
 
 
 
 /*============== main =============*/
 
-article  {
+.main-img  {
     width: 100%;
     margin-bottom: 200px;
-
 }
 
 
@@ -73,6 +134,10 @@ article  {
     color: #161a2f;
 }
 
+.menu-list div {
+    position: relative;
+}
+
 .menu-list p {
     display: inline-block;
     width: 100px;
@@ -80,47 +145,61 @@ article  {
     margin-bottom: 20px;
 }
 
-.menu-list div:nth-child(n):hover {
-    border-color: white;
-    transition: all ease 0.3s;
-    background-color: #161a2f;
-}
-
 .menu-list a {
     line-height: 30px;
 }
 
-.menu-list a:hover {
-    opacity: 0.9;
+.menu-list a:nth-child(n):hover {
     color: white;
+    transition: ease 1s;
+    transform: scale(1.05);
+    background-color: #161a2f;
+}
+
+.menu-list a::after {
+    position: absolute;
+    top: 236px; left: 50px;
+    content: '';
+    display: block;
+    width: 100px; height: 1px;
+    margin-top: 3px;
+    transform: scaleX(0);
+    background-color:white;
+}
+
+.menu-list a:hover::after { 
+    transform: scaleX(1);
+    transition: transform 0.5s;
 }
 
 
 /* queens */
 .queens {
     position: relative;
-}
-
-.queens img {
-    width: 1920px; height: 597px;
-    text-align: center;
+    width: 100%; height: 597px;
+    text-align: left;
     margin-top: 200px;
-} 
+    background: url(../image/queens_main.png) no-repeat;
+    background-size: 100% 550px;
+}
 
 .queens h1 img {
     width: 205px; height: 77px;
 }
 
-.queens .queens-logo-text {
+.queens-logo-text {
     position: absolute;
-    left: 358px; top: 251px;
+    left: 358px; top: 251px; 
 }
 
-.queens .queens-logo-text p {
+.queens-logo-text p {
     margin-top: 20px;
     line-height: 30px;
 }
 
+.queens-logo-text:hover {
+    animation: fadein 1s;
+}
 
 /* delivery-togo */
 .delivery-togo {
@@ -135,15 +214,18 @@ article  {
 .delivery-flex-box {
     display: flex;
     justify-content: center;
+    animation-play-state: running;
+    animation: fadein 1s;
 }
 
 .delivery img {
     width: 550px; height: 500px;
+    box-shadow: 15px 15px 10px #333;
 }
 
 .delivery-text {
     margin-top: 86px;
-    margin-left: 25px;
+    margin-left: 40px;
     text-align: left;
 }
 
@@ -154,9 +236,16 @@ article  {
 }
 
 .delivery-text a {
-    padding: 10px;
+    padding: 3px 0 25px;
     text-indent: 35px;
-    background: url(../image/icon/toolbar.png) no-repeat 8px;
+    font-weight: bold;
+    background: url(../image/icon/toolbar.png) no-repeat;
+}
+
+.delivery-text a:hover {
+    color: #ccc;
+    transform:translateX(3px);
+    transition: ease 0.3s;
 }
 
 .delivery-togo-change a:nth-child(1) {
@@ -175,28 +264,31 @@ article  {
 .homestorants {
     position: relative;
     margin-top: 200px;
-    
 }
 
-.homestorants .home-text div {
+.home-img {
+    width: 100%;
+}
+
+.home-text div {
     position: absolute;
 }
 
-.homestorants .logo-text {
+.logo-text {
     display: flex;
     left: 358px; top: 35px;
     text-align: left;
     line-height: 120px;
-    font-size: 14px;
 }
 
-.homestorants .logo-text h2 img {
-    width: 206px; height: 81px;
+.logo-text h2 img {
+    width: 120px; height: 50px;
+    margin-right: 10px;
 }
 
 .homestorants .contents-text {
-    left: 358px; top: 250px;
-    line-height: 60px;
+    left: 358px; top: 200px;
+    line-height: 90px;
     font-size: 48px;
     color: #161a2f;
 }
@@ -206,10 +298,16 @@ article  {
     font-size: 30px;
 }
 
+.homestorants .contents-text:hover {
+    animation: fadein 1s;
+}
+
 /* home-menu */
+
 .best-menu {
     position: absolute;
     top: 450px; left: 680px;
+    
 }
 
 .new-menu {
@@ -227,7 +325,7 @@ article  {
     top: 450px; left: 1124px;
 }
 
-.hm-img img {
+.home-menu img {
     width: 120px;
     border-radius: 50%;
     filter: grayscale(100%) brightness(50%);
@@ -238,33 +336,26 @@ article  {
     top: 50%; left: 25%;
     transform: translate(0%, -50%);
     text-align: center;
-    color: rgb(197, 196, 196);
-    
+    color: white
 }
 
 .home-menu h2 {
-    color: rgb(197, 196, 196);
+    color: white;
     font-size: 18px;
 }
 
 .home-menu p {
-    font-size: 10px;
+   font-size: 10px; 
 }
 
 .home-menu a {
     display: inline-block;
 }
 
-.best-menu a {
-    background-image: url(../image/homestorants/BestMenu.png) no-repeat 10px;
-}
-
-.best-menu a img:hover {
+.home-menu img:hover {
     filter: none;
-}
-
-.hm-img :hover  {
-
+    transform: scale(1.05);
+    transition: ease 0.2s;
 }
 
 
@@ -292,6 +383,11 @@ article  {
     background-color: #161a2f;
 }
 
+.store .guide-text:hover {
+    transform: translateY(-5px);
+    transition: ease 1s;
+}
+
 .store .guide-text {
     margin-top: 35%;
     line-height: 40px;
@@ -304,13 +400,16 @@ article  {
 .store button {
     color: black;
     border: 0;
+    padding: 7px 15px;
+    font-size: 13px;
+    font-weight: bold;
     background-color: #ccc;
 }
 
 .store button:hover {
+    transform:scale(1.1);
     transition: all ease 0.5s;
     color: black;
-    border: 1px solid white;
     background: white;
 }
 
@@ -331,7 +430,6 @@ article  {
     width: 26%;
     line-height: 15px;
     letter-spacing: -1px;
-    /* background-color: aqua; */
 }
 
 .info li a {
@@ -365,6 +463,16 @@ article  {
 
 .info .icon-3 {
     background: url(../image/icon/info-cunstomer.png)no-repeat;
+}
+
+.info span:hover {
+    transform: scale(1.1);
+    transition: ease 0.5s;
+}
+
+.info li:hover {
+    transform: translateX(5px);
+    transition: ease 0.5s;
 }
 
 
@@ -432,7 +540,9 @@ footer {
     border: 1px solid white;
 }
 
-.footer-left-menu a:hover {
+.footer-left-menu a:hover,
+.footer-left-menu select:hover {
+    transform: scale(1.05);
     transition: all ease 0.5s;
     color: black;
     background: white;
@@ -486,6 +596,11 @@ footer {
     width: 50%; 
 }
 
+.sns-box li a:hover {
+    transform: translateY(-5px);
+    transition: ease 0.3s;
+}
+
 /* fixed-menu */
 .fixed-menu {
     position: fixed;
@@ -505,10 +620,13 @@ footer {
     background-color: #161a2f;
 }
 
-
-
 .fixed-menu img {
     position: absolute;
     top: 15px; left: 15px;
     width: 50%; 
+}
+
+.fixed-menu li a:hover {
+    transform: scale(1.1);
+    transition: ease 0.3s;
 }
