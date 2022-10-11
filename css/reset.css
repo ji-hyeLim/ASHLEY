@@ -8,7 +8,7 @@
 
 html, 
 body {
-    font: 16px '맑은 고딕';
+    font: 16px 'Noto Sans';
     color: #333;
 }
 
@@ -32,8 +32,8 @@ h1 {
 }
 
 h2 {
-    font-size: 48px;
-    color: black
+    font-size: 40px;
+    color: #161a2f
 }
 
 h3 {
