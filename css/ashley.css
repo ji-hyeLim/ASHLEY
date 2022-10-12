@@ -106,24 +106,47 @@
     border-right: 1px solid #3333;
 }
 
+.rightmenu li:nth-child(3) {
+    font-weight: bold;
+    color: #161a2f;
+}
+
 .rightmenu li a:hover {
     color: #ccc;
     transform: translateY(-1px);
 }
 
-
-
 /*============== main =============*/
-
-.main-img  {
-    width: 100%;
-    margin-bottom: 200px;
+/* main-img */
+.main-img {
+    position: relative;
 }
 
+.main-img-box  {
+    display: flex;
+    width: 100%;
+}
+
+.main-img-change img{
+    width: 60px;
+}
+
+.main-img-change a:first-child {
+    position: absolute;
+    top: 350px; left: 100px;
+}
+
+.main-img-change a:last-child {
+    position: absolute;
+    top: 350px; right: 100px;
+}
 
 /* introduction */
 .introduction h2 {
-    margin-bottom: 30px;
+    width: 320px;
+    margin: 100px 0 20px 0;
+    padding-bottom: 15px;
+    border-bottom: 2px solid #ccc;
 }
 
 .menu-list {
@@ -136,6 +159,13 @@
 
 .menu-list div {
     position: relative;
+    padding: 10px 0;
+    margin-bottom: 150px;
+    /* border-top: 1px solid #ccc;
+    border-bottom: 1px solid #ccc; */
+    border-right: 0;
+    background-image: url(../image/white.jpg);
+
 }
 
 .menu-list p {
@@ -172,34 +202,38 @@
     transition: transform 0.5s;
 }
 
-
 /* queens */
 .queens {
     position: relative;
     width: 100%; height: 597px;
     text-align: left;
-    margin-top: 200px;
-    background: url(../image/queens_main.png) no-repeat;
-    background-size: 100% 550px;
-}
-
-.queens h1 img {
-    width: 205px; height: 77px;
+    background: url(../image/배경이미지/spaghetti.jpg) no-repeat center fixed;
+    background-size: cover;
 }
 
 .queens-logo-text {
+    position: relative;
+    width: 500px; height: 597px;
+    background-color: rgba(252, 249, 249, 0.5);
+}
+
+.queens h1 img {
     position: absolute;
-    left: 358px; top: 251px; 
+    left: 30px; top: 270px;
+    width: 205px; height: 77px;
 }
 
 .queens-logo-text p {
+    position: absolute;
+    left: 30px; top: 351px;
     margin-top: 20px;
     line-height: 30px;
 }
 
-.queens-logo-text:hover {
+/* .queens-logo-text:hover {
     animation: fadein 1s;
-}
+} */
+
 
 /* delivery-togo */
 .delivery-togo {
@@ -211,14 +245,14 @@
     position: relative;
 }
 
-.delivery-flex-box {
+.dt-flex-box {
     display: flex;
     justify-content: center;
     animation-play-state: running;
     animation: fadein 1s;
 }
 
-.delivery img {
+.dt-img {
     width: 550px; height: 500px;
     box-shadow: 15px 15px 10px #333;
 }
@@ -229,13 +263,21 @@
     text-align: left;
 }
 
-.delivery-text p {
+.togo-text {
+    margin-top: 86px;
+    margin-right: 40px;
+    text-align: left;
+}
+
+.delivery-text p,
+.togo-text p {
     line-height: 30px;
     margin-top: 35px;
     margin-bottom: 80px;
 }
 
-.delivery-text a {
+.delivery-text a,
+.togo-text a {
     padding: 3px 0 25px;
     text-indent: 35px;
     font-weight: bold;
@@ -248,15 +290,18 @@
     transition: ease 0.3s;
 }
 
+.togo {
+    display: none;
+}
+
 .delivery-togo-change a:nth-child(1) {
     position: absolute;
-    top: 240px;
+    top: 240px; left: 0;
 }
 
 .delivery-togo-change a:nth-child(2) {
     position: absolute;
-    top: 240px;
-    right: 0;
+    top: 240px; right: 0;
 }
 
 
@@ -272,6 +317,7 @@
 
 .home-text div {
     position: absolute;
+    top: 0;
 }
 
 .logo-text {
@@ -287,8 +333,8 @@
 }
 
 .homestorants .contents-text {
-    left: 358px; top: 200px;
-    line-height: 90px;
+    left: 358px; top: 180px;
+    line-height: 70px;
     font-size: 48px;
     color: #161a2f;
 }
@@ -306,23 +352,23 @@
 
 .best-menu {
     position: absolute;
-    top: 450px; left: 680px;
+    top: 450px; left: 360px;
     
 }
 
 .new-menu {
     position: absolute;
-    top: 450px; left: 829px;
+    top: 450px; left: 509px;
 }
 
 .freash-mealkit {
     position: absolute;
-    top: 450px; left: 978px;
+    top: 450px; left: 658px;
 }
 
 .frozen {
     position: absolute;
-    top: 450px; left: 1124px;
+    top: 450px; left: 804px;
 }
 
 .home-menu img {
@@ -345,7 +391,7 @@
 }
 
 .home-menu p {
-   font-size: 10px; 
+    font-size: 10px; 
 }
 
 .home-menu a {
@@ -362,6 +408,12 @@
 /* store */
 .store {
     margin-top: 200px;
+}
+
+.store h2 {
+    width: 125px;
+    padding: 10px 0;
+    border-bottom: 2px solid #ccc;
 }
 
 .store-flexbox {
@@ -415,18 +467,25 @@
 
 /* info */
 .info {
-    margin-top: 200px;
-    margin-bottom: 400px;
+    position: relative;
+    width: 100%; height: 450px;
+    margin-top: 150px;
+    background-image: url(../image/배경이미지/food.jpg);
+    background-size: cover;
 }
 
-.info h2 {
-    margin-bottom: 90px;
+.info-box {
+    position: absolute;
+    top: 160px;
+    width: 100%; height: 200px;
+    /* background-color: rgba(2, 2, 2, 0.5); */
 }
 
 .info li {
     position: relative;
     float: left;
-    margin-left: 64px;
+    margin-top: 200px;
+    margin-left: 80px;
     width: 26%;
     line-height: 15px;
     letter-spacing: -1px;
@@ -434,13 +493,14 @@
 
 .info li a {
     display: block;
-    min-height: 100px;
+    min-height: 150px;
     padding: 0 20px 0 95px;
     font-size: 13px;
+    color: white;
 }
 
 .info li a strong {
-    font-size: 16px;
+    font-size: 17px;
 }
 
 .info .info-text {
@@ -480,7 +540,6 @@
 
 /*============== footer =============*/
 footer {
-    
     width: 100%; height: 300px;
     background-color: #161a2f;
 }
@@ -604,7 +663,7 @@ footer {
 /* fixed-menu */
 .fixed-menu {
     position: fixed;
-    right: 100px;
+    right: 50px;
     top: 20%;
 }
 
@@ -629,4 +688,5 @@ footer {
 .fixed-menu li a:hover {
     transform: scale(1.1);
     transition: ease 0.3s;
+    background: linear-gradient(#75f8d2, #6096db, #2ae3fc);
 }
