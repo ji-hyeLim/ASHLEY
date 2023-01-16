@@ -1,37 +1,58 @@
-$(function() {
-    // 메인 이미지 슬라이드
-    var slideIndex = 1;
-    showSlides(slideIndex);
+$(document).ready(function(){
+    // 메인 슬라이더
+    $('#slider').slick({
+        slide: 'div',
+        infinite: true,
+        slidesToShow: 1,
+        slidesToScroll: 1,
+        arrows : true,
+        dots : true,
+        autoplay: true,
+        autoplaySpeed: 2000,
+        prevArrow :"<button type='button' class='slick-prev'>Prev</button>",
+        nextArrow :"<button type='button' class='slick-next'>Next</button>"
+    });
 
-    function plusSlides(n) {
-    showSlides(slideIndex += n);
-    }
-
-    function currentSlide(n) {
-    showSlides(slideIndex = n);
-    }
-
-    function showSlides(n) {
-        var slides = document.getElementsByClassName("mySlides");
-        var dots = document.getElementsByClassName("dot");
-        if (n > slides.length) { slideIndex = 1 }     
-        if (n < 1) { slideIndex = slides.length }
-        for (let i = 0; i < slides.length; i++) {
-            slides[i].style.display = "none";  
-        }
-        for (let i = 0; i < dots.length; i++) {
-            dots[i].className = dots[i].className.replace(" active", "");
-        }
-        slides[slideIndex-1].style.display = "block";  
-        dots[slideIndex-1].className += " active";
-    }
-
-    // 패밀리 사이트
-    function familyLink() {
-        const frm_fs = document.frm.familySite;
-        const f_link = frm_fs.options[frm_fs.selectedIndex].value;
-        if(f_link) {
-            window.open(f_link, "_blank");
-        }
-    }
+    // delivery-togo
+    $('.dt-change-box').slick({
+        slide: 'div',
+        infinite: true,
+        slidesToShow: 1,
+        slidesToScroll: 1,
+        arrows : true,
+        autoplay: true,
+        autoplaySpeed: 2000,
+        prevArrow : "<button type='button' class='slick-prev dt_arrow_p'>Prev</button>",
+        nextArrow : "<button type='button' class='slick-next dt_arrow_n'>Next</button>"
+    });
 });
+
+
+window.onload = function() {
+    let contents = document.querySelectorAll(".homes-box");
+    let homeMenu = document.querySelectorAll(".home-menu li");
+    let con = '';
+
+    for(var i = 0; i < contents.length; i++) {
+        
+        homeMenu[i].querySelector('.tab').addEventListener('mouseover', function(e){
+            e.preventDefault();
+            this.querySelector('.hm-img').style.filter = 'none';
+            this.querySelector('.hm-img').style.transform = 'scale(1.05)';
+            this.querySelector('.hm-img').style.transition = 'ease 0.2s';
+            
+            for(var j = 0; j < homeMenu.length; j++) {
+                contents[j].style.display = 'none';
+            }
+            
+            con = this.getAttribute('href');
+            console.log(con);
+            document.querySelector(con).style.display = 'block';
+        });
+
+        homeMenu[i].querySelector('.tab').addEventListener('mouseout', function(e){
+            this.querySelector('.hm-img').style.filter = 'grayscale(100%) brightness(50%)';
+            this.querySelector('.hm-img').style.transform = 'scale(1)';
+        });
+    }
+}

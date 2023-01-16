@@ -8,12 +8,17 @@
     <meta name="images" property="og:image" content="./image/og.png">
     <meta name="description" property="og:description" content="아메리칸 고메 뷔페 애슐리">
     <meta name="type" property="og:type" content="article">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
     <link rel="stylesheet" href="./css/reset.css">
     <link rel="stylesheet" href="./css/ashley.css">
-    <link href="https: //fonts.googleapis.com/css2? 가족= 노토+산스+KR:wght@100;300;400;500;700;900 & display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700&display=swap" rel="stylesheet">
     <link rel="short cut" href="./image/favicon.png">
-    <title>ASHLEY</title>
+    <script src="http://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
     <script src="./js/index.js" defer></script>
+    <title>ASHLEY</title>
 </head>
 <body>
     <div class="wrapper">
@@ -49,30 +54,23 @@
         <main>
             <article class="main-img">
                 <h1>main image</h1>
-                <div class="main-img-box">
+                <div id="slider" class="main-img-box autoplay">
                     <div class="main-img1">
                         <a href="#"><img src="./image/main-image/main-img1.png" alt="main-image1"></a>
                     </div>
                     <div class="main-img2">
-                        <img src="./image/main-image/main-img2.png" alt="main-image1">
+                        <img src="./image/main-image/main-img2.png" alt="main-image2">
                     </div>
                     <div class="main-img3">
-                        <img src="./image/main-image/main-img3.png" alt="main-image1">
+                        <img src="./image/main-image/main-img3.png" alt="main-image3">
                     </div>
                     <div class="main-img4">
-                        <img src="./image/main-image/main-img4.png" alt="main-image1">
+                        <img src="./image/main-image/main-img4.png" alt="main-image4">
                     </div>
                     <div class="main-img5">
-                        <img src="./image/main-image/main-img5.png" alt="main-image1">
+                        <img src="./image/main-image/main-img5.png" alt="main-image5">
                     </div>
-                    <div class="main-img6">
-                        <img src="./image/main-image/main-img6.png" alt="main-image1">
-                    </div>
-                </div><!-- main-img-box -->
-                <div class="main-img-change">
-                    <a onclick="plusSlides(-1)"><img src="./image/icon/main-img_prev.png" alt="prev"></a>
-                    <a onclick="plusSlides(1)"><img src="./image/icon/main-img_next.png" alt="next"></a>
-                </div><!-- main-img-change -->
+                </div><!-- main-img-box -->             
             </article><!-- main-img -->
 
             <section class="introduction">
@@ -173,68 +171,117 @@
                                 </div><!-- dt-flex-box -->
                             </div><!-- dt -->
                         </div><!-- togo -->
-                        <div class="delivery-togo-change">
-                            <a href="#"><img src="./image/icon/prev.png" alt="prev"></a>
-                            <a href="#"><img src="./image/icon/next.png" alt="next"></a>
-                        </div><!-- delivery-togo-change -->
                     </div><!-- dt-change-box -->
                 </div><!-- container -->
             </section><!-- delivery-togo -->
 
+            
             <section class="homestorants">
-                <div class="home-img">
-                    <img src="./image/homestorants/home1.png" alt="homestorants image1">
-                </div>
+                <ul class="homes">
+                    <li id="t_1" class="homes-box on">
+                        <img src="./image/homestorants/home_BestMenu.png" alt="homestorants image1">
+                        <div class="container">
+                            <div class="home-text-zone">
+                                <div class="logo-text">
+                                    <h2><a href="#"><img src="./image/home-logo.png" alt="homestorants logo"></a></h2>
+                                    <p>우리집이 <b>맛집</b>이 됩니다</p>
+                                </div>
+                                <div  class="contents-text">
+                                    <p>우리 집을 레스토랑으로 만들어주는</p>
+                                    <strong>홈스토랑 베스트메뉴</strong>
+                                </div>
+                            </div> <!-- home-text-zone -->
+                        </div> <!-- container -->
+                    </li> <!-- homes-box -->
+
+                    <li id="t_2" class="homes-box">
+                        <img src="./image/homestorants/home_NewMenu.png" alt="homestorants image1">
+                        <div class="container">
+                            <div class="home-text-zone">
+                                <div class="logo-text">
+                                    <h2><a href="#"><img src="./image/home-logo.png" alt="homestorants logo"></a></h2>
+                                    <p>우리집이 <b>맛집</b>이 됩니다</p>
+                                </div>
+                                <div class="contents-text">
+                                    <p>방금 나온 따끈따끈한</p>
+                                    <strong>홈스토랑 신메뉴</strong>
+                                </div>
+                            </div> <!-- home-text-zone -->
+                        </div> <!-- container -->
+                    </li> <!-- homes-box -->
+
+                    <li id="t_3" class="homes-box">
+                        <img src="./image/homestorants/home_FreashMealkit.png" alt="homestorants image1">
+                        <div class="container">
+                            <div class="home-text-zone">
+                                <div class="logo-text">
+                                    <h2><a href="#"><img src="./image/home-logo.png" alt="homestorants logo"></a></h2>
+                                    <p>우리집이 <b>맛집</b>이 됩니다</p>
+                                </div>
+                                <div class="contents-text">
+                                    <p>애슐리의 특별 레시피를 담은</p>
+                                    <strong>홈스토랑 신선밀키트</strong>
+                                </div>
+                            </div> <!-- home-text-zone -->
+                        </div> <!-- container -->
+                    </li> <!-- homes-box -->
+
+                    <li id="t_4" class="homes-box">
+                        <img src="./image/homestorants/home_Frozen.png" alt="homestorants image1">
+                        <div class="container">
+                            <div class="home-text-zone">
+                                <div class="logo-text">
+                                    <h2><a href="#"><img src="./image/home-logo.png" alt="homestorants logo"></a></h2>
+                                    <p>우리집이 <b>맛집</b>이 됩니다</p>
+                                </div>
+                                <div class="contents-text">
+                                    <p>언제 어디서나 내 앞에는 애슐리</p>
+                                    <strong>홈스토랑 간편식</strong>
+                                </div>
+                            </div> <!-- home-text-zone -->
+                        </div> <!-- container -->
+                    </li> <!-- homes-box -->
+                </ul> <!-- homes -->
+
                 <div class="container">
-                    <div class="home-text">
-                        <div class="logo-text">
-                            <h2><a href="#"><img src="./image/home-logo.png" alt="homestorants logo"></a></h2>
-                            <p>우리집이 <b>맛집</b>이 됩니다</p>
-                        </div>
-                        <div class="contents-text">
-                            <p>언제 어디서나 내 앞에는 애슐리</p>
-                            <strong>홈스토랑 간편식</strong>
-                        </div>
-                    </div>
-                    
-                    <div class="home-menu">
-                        <div class="best-menu">
-                            <a href="#">
+                    <ul class="home-menu">
+                        <li class="best-menu">
+                            <a href="#t_1" class="tab">
                                 <img class="hm-img" src="./image/homestorants/BestMenu.png" alt="BestMenu">
                                 <div class="hm-text">
                                     <h2>베스트<br>메뉴</h2>
                                     <p>Best Menu</p>
                                 </div>
                             </a>
-                        </div>
-                        <div class="new-menu">
-                            <div class="hm-img">
-                                <img src="./image/homestorants/NewMenu.jpg" alt="NewMenu">
-                            </div>
-                            <div class="hm-text">
-                                <h2>신메뉴</h2>
-                                <p>New Menu</p>
-                            </div>
-                        </div>
-                        <div class="freash-mealkit">
-                            <div class="hm-img">
-                                <img src="./image/homestorants/FreashMealkit.jpg" alt="FreashMealkit">
-                            </div>
-                            <div class="hm-text">
-                                <h2>신선<br>밀키트</h2>
-                                <p>Freash Mealkit</p>
-                            </div>
-                        </div>
-                        <div class="frozen">
-                            <div class="hm-img">
-                                <img src="./image/homestorants/Frozen.jpg" alt="Frozen">
-                            </div>
-                            <div class="hm-text">
-                                <h2>냉동<br>간편식</h2>
-                                <p>Frozen</p>
-                            </div>
-                        </div>
-                    </div><!-- home-menu -->
+                        </li> <!-- best-menu -->
+                        <li class="new-menu">
+                            <a href="#t_2" class="tab">
+                                <img class="hm-img" src="./image/homestorants/NewMenu.jpg" alt="NewMenu">
+                                <div class="hm-text">
+                                    <h2>신메뉴</h2>
+                                    <p>New Menu</p>
+                                </div>
+                            </a>
+                        </li> <!-- new-menu -->
+                        <li class="freash-mealkit">
+                            <a href="#t_3" class="tab">
+                                <img class="hm-img" src="./image/homestorants/FreashMealkit.jpg" alt="FreashMealkit">
+                                <div class="hm-text">
+                                    <h2>신선<br>밀키트</h2>
+                                    <p>Freash Mealkit</p>
+                                </div>
+                            </a>
+                        </li> <!-- freash-mealkit -->
+                        <li class="frozen">
+                            <a href="#t_4" class="tab">
+                                <img class="hm-img" src="./image/homestorants/Frozen.jpg" alt="Frozen">
+                                <div class="hm-text">
+                                    <h2>냉동<br>간편식</h2>
+                                    <p>Frozen</p>
+                                </div>
+                            </a>
+                        </li> <!-- frozen -->
+                    </ul><!-- home-menu -->
                 </div><!-- container -->
             </section><!-- homestorants -->
 
@@ -248,9 +295,11 @@
                         <div class="guide-text-bg">
                             <div class="guide-text">
                                 <img src="./image/icon/store-location_pin.png" alt="location pin">
-                                <p>자세히 보기를 클릭해서<br>
-                                    정확한 정보를 확인하세요</p>
-                                <a href="#"><button class="btn">자세히보기</button></a>
+                                <p>
+                                    자세히 보기를 클릭해서<br>
+                                    정확한 정보를 확인하세요
+                                </p>
+                                <button type="button" class="btn">자세히보기</button>
                             </div>
                         </div>
                     </div><!-- store-flexbox --> 
@@ -308,11 +357,14 @@
                     </div><!-- footer-right-flexbox -->
 
                     <div class="footer-left-menu">
+                        <div class="footer-btn">
                             <div class="footer-left-flexbox">
-                                <div class="footer-btn">
+                                <div class="footer-btn-box">
                                     <a href="http://foodrecruit.eland.co.kr/">채용 안내</a>
+                                </div>
+                                <div class="footer-btn-box">
                                     <form name="frm">
-                                        <select name="familySite" onChange="familyLink()">
+                                        <select class="family-site" name="familySite" onChange="familyLink()">
                                             <option value="" selected>패밀리 사이트</option>
                                             <option value="https://www.elandeat.com/brandDetail/RI">리미니</option>
                                             <option value="https://www.elandeat.com/brandDetail/PM">피자몰</option>
@@ -321,9 +373,12 @@
                                             <option value="https://www.homestaurant.co.kr/main/index.php">홈스토랑</option>
                                         </select>
                                     </form>
+                                </div>
+                                <div class="footer-btn-box">
                                     <img src="./image/certificate.png" alt="certificate">
-                                </div><!-- footer-btn -->
+                                </div>
                             </div><!-- footer-left-flexbox -->
+                        </div><!-- footer-btn -->
                     </div><!-- footer-left-menu -->
                     <div class="footer-text-menu">
                             <address class="footer-text">

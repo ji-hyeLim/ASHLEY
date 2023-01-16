@@ -1,5 +1,7 @@
 @charset "utf-8";
 
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700&display=swap');
+
 @keyframes move {
     0% { transform: rotate(5deg); }
     10% { transform: rotate(4deg); }
@@ -122,31 +124,82 @@
     position: relative;
 }
 
-.main-img-box  {
+.main-img-box {
+    position: relative;
     display: flex;
     width: 100%;
 }
 
-
-
-.main-img-change img{
-    width: 60px;
+.main-img-box img {
+    width: 100%;
 }
 
-.main-img-change a:first-child {
+/* slick */
+.slick-arrow {
+    cursor: pointer;
     position: absolute;
-    top: 350px; left: 100px;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 10;
+    width: 50px;
+    height: 50px;
+    font-size: 0;
+    border: none;
+    background-color: transparent;
 }
 
-.main-img-change a:last-child {
-    position: absolute;
-    top: 350px; right: 100px;
+.slick-prev {
+    left: 100px;
+    background: url(../image/icon/main-img_prev.png) no-repeat;
+    background-size: contain;
 }
+
+.slick-next {
+    right: 100px;
+    background: url(../image/icon/main-img_next.png) no-repeat;
+    background-size: contain;
+}
+
+
+/* dots */
+.slick-dots {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+}
+
+.slick-dots li {
+    margin: 0 10px;
+}
+
+.slick-dots button {
+    cursor: pointer;
+    width: 15px;
+    height: 15px;
+    font-size: 0;
+    border: 2px solid #ccc;
+    border-radius: 50%;
+}
+
+.slick-active button{
+    background: white;
+}
+
+.slick-dots button::before {
+    display: none;
+}
+    
 
 /* introduction */
+.introduction {
+    margin: 300px 0;
+}
+
 .introduction h2 {
     width: 320px;
-    margin: 100px 0 20px 0;
+    margin: 20px 0 20px 0;
     padding-bottom: 15px;
     border-bottom: 2px solid #ccc;
 }
@@ -163,11 +216,7 @@
     position: relative;
     padding: 10px 0;
     margin-bottom: 150px;
-    /* border-top: 1px solid #ccc;
-    border-bottom: 1px solid #ccc; */
     border-right: 0;
-    background-image: url(../image/white.jpg);
-
 }
 
 .menu-list p {
@@ -208,6 +257,7 @@
 .queens {
     position: relative;
     width: 100%; height: 597px;
+    margin: 300px 0;
     text-align: left;
     background: url(../image/배경이미지/spaghetti.jpg) no-repeat center fixed;
     background-size: cover;
@@ -232,14 +282,10 @@
     line-height: 30px;
 }
 
-/* .queens-logo-text:hover {
-    animation: fadein 1s;
-} */
-
 
 /* delivery-togo */
 .delivery-togo {
-    margin-top: 200px;
+    margin: 300px 0;
     text-align: center;
 }
 
@@ -292,37 +338,39 @@
     transition: ease 0.3s;
 }
 
-.togo {
-    display: none;
+.dt_arrow_p {
+    left: 0px;
+    background:url(../image/icon/prev.png) no-repeat;
+    background-size: contain;
 }
 
-.delivery-togo-change a:nth-child(1) {
-    position: absolute;
-    top: 240px; left: 0;
-}
-
-.delivery-togo-change a:nth-child(2) {
-    position: absolute;
-    top: 240px; right: 0;
+.dt_arrow_n {
+    right: 0px;
+    background:url(../image/icon/next.png) no-repeat;
+    background-size: contain;
 }
 
 
 /* homestorants */
 .homestorants {
     position: relative;
-    margin-top: 200px;
+    margin: 300px 0;
 }
 
-.home-img {
+.homes-box {
+    display: none;
+}
+
+.on {
+    display: block;
+}
+
+.homes-box img {
     width: 100%;
 }
 
-.home-text div {
-    position: absolute;
-    top: 0;
-}
-
 .logo-text {
+    position: absolute;
     display: flex;
     left: 358px; top: 35px;
     text-align: left;
@@ -335,6 +383,7 @@
 }
 
 .homestorants .contents-text {
+    position: absolute;
     left: 358px; top: 180px;
     line-height: 70px;
     font-size: 48px;
@@ -350,12 +399,11 @@
     animation: fadein 1s;
 }
 
-/* home-menu */
 
+/* home-menu */
 .best-menu {
     position: absolute;
     top: 450px; left: 360px;
-    
 }
 
 .new-menu {
@@ -400,16 +448,10 @@
     display: inline-block;
 }
 
-.home-menu img:hover {
-    filter: none;
-    transform: scale(1.05);
-    transition: ease 0.2s;
-}
-
 
 /* store */
 .store {
-    margin-top: 200px;
+    margin: 300px 0;
 }
 
 .store h2 {
@@ -452,6 +494,7 @@
 }
 
 .store button {
+    cursor: pointer;
     color: black;
     border: 0;
     padding: 7px 15px;
@@ -460,18 +503,21 @@
     background-color: #ccc;
 }
 
-.store button:hover {
+
+/* contents-text */
+.btn:hover {
     transform:scale(1.1);
     transition: all ease 0.5s;
     color: black;
     background: white;
 }
 
+
 /* info */
 .info {
     position: relative;
     width: 100%; height: 450px;
-    margin-top: 150px;
+    margin-top: 300px;
     background-image: url(../image/배경이미지/food.jpg);
     background-size: cover;
 }
@@ -480,7 +526,6 @@
     position: absolute;
     top: 160px;
     width: 100%; height: 200px;
-    /* background-color: rgba(2, 2, 2, 0.5); */
 }
 
 .info li {
@@ -580,6 +625,11 @@ footer {
     color: white;
 }
 
+.policy a:hover {
+    font-weight: 600;
+    color: #ccc;
+}
+
 /* footer-left-menu */
 .footer-left-menu {
     margin-top: 50px;
@@ -614,8 +664,8 @@ footer {
     top: 40px; left: 285px;
 }
 
-.btn-cfc {
-    margin-top: 0;
+.family-site {
+    cursor: pointer;
 }
 
 
@@ -667,6 +717,7 @@ footer {
     position: fixed;
     right: 50px;
     top: 20%;
+    z-index: 9999;
 }
 
 .fixed-menu li a {
