@@ -9,6 +9,7 @@
 :cupcake: **사용 소스**: HTML, CSS, JavaScript, Jquery
 <br>
 :cupcake: **작업 인원**: 1명
+<br>
 
 ---
 ## :fork_and_knife: UI, UX 콘셉트 기획 
