@@ -1,6 +1,6 @@
 # :plate_with_cutlery: ASHLEY
-
-:lollipop: 외식브랜드 애슐리의 사이트를 심플하고 한눈에 들어오는 디자인으로 리뉴얼하였습니다.
+![DesignStrategy](main.png)
+:lollipop: 외식브랜드 애슐리의 사이트를 **심플**하고 **한 눈에 들어오는 디자인**으로 리뉴얼하였습니다.
 <br>
 <br>
 
